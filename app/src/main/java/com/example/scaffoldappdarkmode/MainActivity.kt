@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SimpleScaffoldExample(modifier: Modifier = Modifier, isDarkTheme: Boolean, onThemeToggle: () -> Unit) {
+fun SimpleScaffoldExample(isDarkTheme: Boolean, onThemeToggle: () -> Unit) {
     var presses by remember { mutableStateOf(0) }
 
     Scaffold(
