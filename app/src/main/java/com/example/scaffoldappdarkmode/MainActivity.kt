@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -42,13 +41,10 @@ class MainActivity : ComponentActivity() {
             var isDarkTheme by remember { mutableStateOf(false) }
 
             ScaffoldAppDarkModeTheme(darkTheme = isDarkTheme) {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    SimpleScaffoldExample(
-                        modifier = Modifier.padding(innerPadding),
-                        isDarkTheme = isDarkTheme,
-                        onThemeToggle = { isDarkTheme = !isDarkTheme }
-                    )
-                }
+                SimpleScaffoldExample(
+                    isDarkTheme = isDarkTheme,
+                    onThemeToggle = { isDarkTheme = !isDarkTheme }
+                )
             }
         }
     }
@@ -56,7 +52,7 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SimpleScaffoldExample(modifier: Modifier, isDarkTheme: Boolean, onThemeToggle: () -> Unit) {
+fun SimpleScaffoldExample(modifier: Modifier = Modifier, isDarkTheme: Boolean, onThemeToggle: () -> Unit) {
     var presses by remember { mutableStateOf(0) }
 
     Scaffold(
